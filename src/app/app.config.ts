@@ -2,7 +2,15 @@ import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { attachHeaderInterceptor } from './interceptors/attach-header.interceptor';
+import { errorInterceptor } from './interceptors/error.interceptor';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes)]
+  providers: [
+    provideRouter(routes),
+    provideHttpClient(
+      withInterceptors([attachHeaderInterceptor, errorInterceptor])
+    ),
+  ],
 };

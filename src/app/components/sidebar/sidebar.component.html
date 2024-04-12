@@ -1,0 +1,12 @@
+<nav>
+  <a routerLink="/home" routerLinkActive="active">Home</a>
+  <a routerLink="/users" routerLinkActive="active">Users</a>
+
+  <br />
+  <br />
+  <br />
+  <app-multi-select
+    [options]="navLinks"
+    (selectionChange)="handleSelectionChange($event)"
+  />
+</nav>

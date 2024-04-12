@@ -1,0 +1,15 @@
+<ejs-multiselect
+  id="multiselectelement"
+  [dataSource]="options()"
+  [fields]="fields"
+  (change)="selectionChange.emit($event)"
+>
+  <ng-template #itemTemplate="" let-data="">
+    <div class="select-option">
+      @if(data.icon) {
+      <img class="select-option-icon" [src]="data.icon" />
+      }
+      {{ data.text }}
+    </div>
+  </ng-template>
+</ejs-multiselect>
